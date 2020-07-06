@@ -11,7 +11,10 @@ class CalculationStatisticsTest {
     @Test
     public void averageamount() {
         int average;
-
+        int i;
+        for (i = 0; i < 12; i++) {
+            m_total += mounths[i];
+        }
         average = m_total / 12;
         System.out.println("average " + average);
         assertEquals(15, average);
@@ -38,16 +41,79 @@ class CalculationStatisticsTest {
 
     @Test
     void maxSumm() {
-        int tmp = 0;
-        int i;
-        int max = mounths[0];
-        for (i = 0; i < 12; i++) {
-            if (max < mounths[i])
-            {
-                max = mounths[i];
-                i = mounths[i];
+
+        int index = 0;
+        int value = 0;
+
+        for (var i = 0; i < 12; i++) {
+            if (value <= mounths[i]) {
+                value = mounths[i];
+                index = i;
             }
         }
-        assertEquals(8, mounths[i] );
+        System.out.println("index " + index);
+        assertEquals(7, index);
+    }
+
+    @Test
+    void testMinSumm() {
+        int index = 0;
+        int value = 110;
+
+        for (var i = 0; i < 12; i++) {
+            if (value >= mounths[i]) {
+                value = mounths[i];
+                index = i;
+            }
+
+        }
+        System.out.println("index " + index);
+        assertEquals(8, index);
+    }
+
+    @Test
+    void minAverageMounths() {
+        int average;
+        int quantityMounths = 0;
+        int i;
+        for (i = 0; i < 12; i++) {
+            m_total += mounths[i];
+        }
+        average = m_total / 12;
+        int minAverage = 0;
+        int indexMounth = 0;
+        for (i = 0; i < 12; i++) {
+            if (mounths[i] < average) {
+                minAverage = mounths[i];
+                indexMounth ++;
+            }
+
+        }
+
+        System.out.println("indexMounth " + indexMounth);
+        assertEquals(5, indexMounth);
+    }
+
+    @Test
+    void maxAverageMounths() {
+        int average;
+        int quantityMounths = 0;
+        int i;
+        for (i = 0; i < 12; i++) {
+            m_total += mounths[i];
+        }
+        average = m_total / 12;
+        int maxAverage = 0;
+        int indexMounth = 0;
+        for (i = 0; i < 12; i++) {
+            if (mounths[i] >= average) {
+                maxAverage = mounths[i];
+                indexMounth ++;
+            }
+
+        }
+
+        System.out.println("indexMounth " + indexMounth);
+        assertEquals(7, indexMounth);
     }
 }
