@@ -22,98 +22,44 @@ class CalculationStatisticsTest {
     }
 
     @Test
-    void in_between_test() {
-        System.out.println("in between test");
+    void total() {
+        CalculationStatistics totalTest = new CalculationStatistics();
+        int actual = totalTest.total();
+        assertEquals(180, actual);
     }
-
 
     @Test
-    public void calculationStatistics() {
-        int i;
-        for (i = 0; i < 12; i++) {
-            m_total += mounths[i];
-        }
-
-        System.out.println("Total " + m_total);
-        assertEquals(180, m_total);
+    void testAverageamount() {
+        CalculationStatistics averageTest = new CalculationStatistics();
+        int actual = averageTest.averageamount();
+        assertEquals(15, actual);
     }
-
 
     @Test
     void maxSumm() {
-
-        int index = 0;
-        int value = 0;
-
-        for (var i = 0; i < 12; i++) {
-            if (value <= mounths[i]) {
-                value = mounths[i];
-                index = i;
-            }
-        }
-        System.out.println("index " + index);
-        assertEquals(7, index);
+        CalculationStatistics maxSummTest = new CalculationStatistics();
+        int actual = maxSummTest.maxSumm();
+        assertEquals(8, actual);
     }
 
     @Test
-    void testMinSumm() {
-        int index = 0;
-        int value = 110;
-
-        for (var i = 0; i < 12; i++) {
-            if (value >= mounths[i]) {
-                value = mounths[i];
-                index = i;
-            }
-
-        }
-        System.out.println("index " + index);
-        assertEquals(8, index);
+    void minSumm() {
+        CalculationStatistics minSummTest = new CalculationStatistics();
+        int actual = minSummTest.minSumm();
+        assertEquals(9, actual);
     }
 
     @Test
     void minAverageMounths() {
-        int average;
-        int quantityMounths = 0;
-        int i;
-        for (i = 0; i < 12; i++) {
-            m_total += mounths[i];
-        }
-        average = m_total / 12;
-        int minAverage = 0;
-        int indexMounth = 0;
-        for (i = 0; i < 12; i++) {
-            if (mounths[i] < average) {
-                minAverage = mounths[i];
-                indexMounth ++;
-            }
-
-        }
-
-        System.out.println("indexMounth " + indexMounth);
-        assertEquals(5, indexMounth);
+        CalculationStatistics minAverageTest = new CalculationStatistics();
+        int actual = minAverageTest.minAverageMounths();
+        assertEquals(5, actual);
     }
 
     @Test
     void maxAverageMounths() {
-        int average;
-        int quantityMounths = 0;
-        int i;
-        for (i = 0; i < 12; i++) {
-            m_total += mounths[i];
-        }
-        average = m_total / 12;
-        int maxAverage = 0;
-        int indexMounth = 0;
-        for (i = 0; i < 12; i++) {
-            if (mounths[i] >= average) {
-                maxAverage = mounths[i];
-                indexMounth ++;
-            }
-
-        }
-
-        System.out.println("indexMounth " + indexMounth);
-        assertEquals(7, indexMounth);
+    CalculationStatistics maxAverageTest = new CalculationStatistics();
+    int actual = maxAverageTest.maxAverageMounths();
+    assertEquals(7, actual);
     }
 }

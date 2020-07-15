@@ -1,107 +1,69 @@
 package ru.netology.stats;
 
 public class CalculationStatistics {
-    public int[] mounths = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-    public int m_total;
+    public int[] month = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    // public int m_total = 0;
 
     public static void main() {
 
     }
 
-    public int averageamount() {
-        int average;
-        int i;
-        for (i = 0; i < 12; i++) {
-            m_total += mounths[i];
+    public int total() {
+        int result = 0;
+        for (int months : month) {
+            result += months;
         }
-        average = m_total / 12;
-        System.out.println("average " + average);
-        return average;
+        return result;
     }
 
-    public int calculationStatistics() {
-
-        int i;
-        int total = 0;
-        for (i = 1; i <= 12; i++) {
-            total += mounths[i];
-        }
-        System.out.println(total);
-        return total;
+    public int averageamount() {
+        int average = total() / 12;
+        return average;
     }
 
     public int maxSumm() {
         int index = 0;
         int value = 0;
-
-        for (var i = 0; i < 12; i++) {
-            if (value <= mounths[i]) {
-                value = mounths[i];
-                index = i;
+        int count = 0;
+        for (int months : month) {
+            count += 1;
+            if (value <= months) {
+                value = months;
+                index = count;
             }
         }
-        System.out.println("index " + index);
-        return value;
+        return index;
     }
 
     public int minSumm() {
         int index = 0;
-        int value = 110;
-
-        for (var i = 0; i < 12; i++) {
-            if (value >= mounths[i]) {
-                value = mounths[i];
-                index = i;
+        int value = 100;
+        int count = 0;
+        for (int months : month) {
+            count += 1;
+            if (value >= months) {
+                value = months;
+                index = count;
             }
-
         }
-        System.out.println("index " + index);
-
-
-        return value;
+        return index;
     }
 
     public int minAverageMounths() {
-        int average;
-        int quantityMounths = 0;
-        int i;
-        for (i = 0; i < 12; i++) {
-            m_total += mounths[i];
-        }
-        average = m_total / 12;
-        int minAverage = 0;
-        int indexMounth = 0;
-        for (i = 0; i < 12; i++) {
-            if (mounths[i] < average) {
-                minAverage = mounths[i];
-                indexMounth ++;
+        int index = 0;
+        for (int months : month)
+            if (months < averageamount()) {
+                index += 1;
             }
-
-        }
-
-        System.out.println("indexMounth " + indexMounth);
-        return minAverage;
+        return index;
     }
 
     public int maxAverageMounths() {
-        int average;
-        int quantityMounths = 0;
-        int i;
-        for (i = 0; i < 12; i++) {
-            m_total += mounths[i];
-        }
-        average = m_total / 12;
-        int maxAverage = 0;
-        int indexMounth = 0;
-        for (i = 0; i < 12; i++) {
-            if (mounths[i] >= average) {
-                maxAverage = mounths[i];
-                indexMounth ++;
+        int index = 0;
+        for (int months : month)
+            if (months >= averageamount()) {
+                index += 1;
             }
-
-        }
-
-        System.out.println("indexMounth " + indexMounth);
-        return maxAverage;
+        return index;
     }
 }
