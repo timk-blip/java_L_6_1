@@ -1,14 +1,8 @@
 package ru.netology.stats;
 
 public class CalculationStatistics {
-    public int[] month = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-    // public int m_total = 0;
 
-    public static void main() {
-
-    }
-
-    public int total() {
+    public int total(int[] month) {
         int result = 0;
         for (int months : month) {
             result += months;
@@ -16,12 +10,12 @@ public class CalculationStatistics {
         return result;
     }
 
-    public int averageamount() {
-        int average = total() / 12;
+    public int averageamount(int[] month) {
+        int average = total(month) / 12;
         return average;
     }
 
-    public int maxSumm() {
+    public int maxSumm(int[] month) {
         int index = 0;
         int value = 0;
         int count = 0;
@@ -35,7 +29,7 @@ public class CalculationStatistics {
         return index;
     }
 
-    public int minSumm() {
+    public int minSumm(int[] month) {
         int index = 0;
         int value = 100;
         int count = 0;
@@ -49,19 +43,19 @@ public class CalculationStatistics {
         return index;
     }
 
-    public int minAverageMounths() {
+    public int minAverageMounths(int[] month) {
         int index = 0;
         for (int months : month)
-            if (months < averageamount()) {
+            if (months < averageamount(month)) {
                 index += 1;
             }
         return index;
     }
 
-    public int maxAverageMounths() {
+    public int maxAverageMounths(int[] month) {
         int index = 0;
         for (int months : month)
-            if (months >= averageamount()) {
+            if (months >= averageamount(month)) {
                 index += 1;
             }
         return index;

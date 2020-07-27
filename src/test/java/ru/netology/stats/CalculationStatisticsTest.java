@@ -5,61 +5,63 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalculationStatisticsTest {
-    public int[] mounths = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-    public int m_total;
+
 
     @Test
     public void averageamount() {
-        int average;
-        int i;
-        for (i = 0; i < 12; i++) {
-            m_total += mounths[i];
-        }
-        average = m_total / 12;
-        System.out.println("average " + average);
-        assertEquals(15, average);
+        CalculationStatistics calculation = new CalculationStatistics();
+        int[] month = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        calculation.averageamount(month);
+        int expected = 15;
+        int actual = calculation.averageamount(month);
+        assertEquals(expected, actual);
 
     }
 
     @Test
     void total() {
+        int[] month = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         CalculationStatistics totalTest = new CalculationStatistics();
-        int actual = totalTest.total();
+        int actual = totalTest.total(month);
         assertEquals(180, actual);
     }
 
     @Test
     void testAverageamount() {
+        int[] months = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         CalculationStatistics averageTest = new CalculationStatistics();
-        int actual = averageTest.averageamount();
-        assertEquals(15, actual);
+        assertEquals(15, averageTest.averageamount(months));
     }
 
     @Test
     void maxSumm() {
+        int[] month = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         CalculationStatistics maxSummTest = new CalculationStatistics();
-        int actual = maxSummTest.maxSumm();
+        int actual = maxSummTest.maxSumm(month);
         assertEquals(8, actual);
     }
 
     @Test
     void minSumm() {
+        int[] month = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         CalculationStatistics minSummTest = new CalculationStatistics();
-        int actual = minSummTest.minSumm();
+        int actual = minSummTest.minSumm(month);
         assertEquals(9, actual);
     }
 
     @Test
     void minAverageMounths() {
+        int[] month = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         CalculationStatistics minAverageTest = new CalculationStatistics();
-        int actual = minAverageTest.minAverageMounths();
+        int actual = minAverageTest.minAverageMounths(month);
         assertEquals(5, actual);
     }
 
     @Test
     void maxAverageMounths() {
+        int[] month = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
     CalculationStatistics maxAverageTest = new CalculationStatistics();
-    int actual = maxAverageTest.maxAverageMounths();
+    int actual = maxAverageTest.maxAverageMounths(month);
     assertEquals(7, actual);
     }
 }
