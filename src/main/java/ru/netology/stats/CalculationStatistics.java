@@ -31,7 +31,7 @@ public class CalculationStatistics {
 
     public int minSumm(int[] month) {
         int index = 0;
-        int value = 100;
+        int value = month[0];
         int count = 0;
         for (int months : month) {
             count += 1;
@@ -45,17 +45,19 @@ public class CalculationStatistics {
 
     public int minAverageMounths(int[] month) {
         int index = 0;
+        int average = averageamount(month);
         for (int months : month)
-            if (months < averageamount(month)) {
-                index += 1;
+            if (months < average) {
+                index++;
             }
         return index;
     }
 
     public int maxAverageMounths(int[] month) {
         int index = 0;
+        int average = averageamount(month);
         for (int months : month)
-            if (months >= averageamount(month)) {
+            if (months >= average) {
                 index += 1;
             }
         return index;
